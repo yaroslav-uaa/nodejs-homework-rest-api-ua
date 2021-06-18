@@ -23,7 +23,7 @@ mongoose.connection.on('disconnected', (e) => {
 
 process.on('SIGINT', async () => {
   mongoose.connection.close(() => {
-    console.log('Connection to DB terminater')
+    console.log('Connection to DB terminated')
     process.exit(1)
   })
 })
