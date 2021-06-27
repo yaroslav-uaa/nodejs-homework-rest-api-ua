@@ -5,7 +5,7 @@ const subscriptionOptions = Object.values(UserPlans)
 const schemaCreateUser = Joi.object({
   email: Joi.string().email({
     minDomainSegments: 2,
-    tlds: { allow: ['com', 'net'] },
+    tlds: { allow: ['com', 'net', 'ua'] },
   }),
   password: Joi.string().min(8).max(15).required(),
   subscription: Joi.string()
