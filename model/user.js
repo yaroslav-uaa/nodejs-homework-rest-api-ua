@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose')
+const gravatar = require('gravatar')
 const { UserPlans } = require('../helpers/constants')
 const bcrypt = require('bcryptjs')
 
@@ -21,6 +22,16 @@ const userSchema = new Schema(
       default: UserPlans.START,
     },
     token: String,
+    avatar: {
+      type: String,
+      default: function () {
+        return gravatar.url(this.email, { s: '250' }, true)
+      },
+    },
+    idCloudAvatar: {
+      type: String,
+      default: null,
+    },
   },
   {
     versionKey: false,
